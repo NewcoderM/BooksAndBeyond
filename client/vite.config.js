@@ -9,7 +9,7 @@ export default defineConfig({
     host: '0.0.0.0',
   },  
   preview: {
-    allowedHosts: ["https://booksandbeyond-production.up.railway.app"] 
+    allowedHosts: ["booksandbeyond-production.up.railway.app"] 
   },
   build: {
     outDir: 'build'
