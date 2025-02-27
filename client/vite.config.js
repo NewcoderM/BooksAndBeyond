@@ -7,7 +7,9 @@ export default defineConfig({
   server: {
     port: 3000,
     host: '0.0.0.0',
-    allowedHosts: ["https://booksandbeyond-production.up.railway.app"]
+  },  
+  preview: {
+    allowedHosts: ["https://booksandbeyond-production.up.railway.app"] 
   },
   build: {
     outDir: 'build'
