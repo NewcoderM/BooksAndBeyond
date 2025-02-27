@@ -37,8 +37,6 @@ ALLOWED_HOSTS=['*']
 
 CORS_ALLOW_CREDENTIALS = True
 
-CSRF_COOKIE_SECURE = True
-
 # Application definition
 
 INSTALLED_APPS = [
