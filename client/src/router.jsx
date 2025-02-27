@@ -1,0 +1,24 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Details from "./components/Books/Details";
+import Register from "./components/Auth/Register";
+import Login from "./components/Auth/Login";
+import Contact from "./components/Contact";
+import Books from "./components/Books";
+import Home from "./components/Home";
+
+const BaseRouter = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/books" element={<Books />} />
+        <Route path="/books/:id" element={<Details />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </Router>
+  );
+};
+
+export default BaseRouter;
