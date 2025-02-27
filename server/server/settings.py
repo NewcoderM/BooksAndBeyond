@@ -38,6 +38,10 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5173", 
 ]
 
+CORS_TRUSTED_ORIGINS = [
+    "https://booksandbeyond-server-production.up.railway.app/", 
+]
+
 ALLOWED_HOSTS=['.railway.app']
 
 CORS_ALLOW_CREDENTIALS = True
