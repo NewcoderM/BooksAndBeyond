@@ -17,4 +17,4 @@ class Comment(models.Model):
     text = models.TextField()
 
     def __str__(self):
-        return f"Comment by {self.user} on {self.book.title}"
+        return f"Comment by {self.customer} on {self.book.title}"
