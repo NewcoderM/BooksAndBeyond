@@ -43,7 +43,7 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 CORS_TRUSTED_ORIGINS = [
-    "https://booksandbeyond-server-production.up.railway.app/", 
+    "https://booksandbeyond-server-production.up.railway.app", 
 ]
 
 ALLOWED_HOSTS=['.railway.app']
