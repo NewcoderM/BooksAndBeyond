@@ -18,7 +18,7 @@ const Home = () => {
         {/* Overlay Content */}
         <div className="relative z-10 p-4">
           <h1 className="text-4xl font-extrabold text-teal-200 mb-4">
-            Welcome to BookVerse
+            Welcome to BooksAndBeyond
           </h1>
           <p className="text-lg mb-6 max-w-2xl mx-auto">
             Discover your next favorite book! Dive into a world of knowledge,
