@@ -30,7 +30,7 @@ const Home = () => {
               href="/books"
               className="bg-teal-600 px-6 py-4 rounded-lg hover:bg-teal-700 transition-colors"
             >
-              Start Reading
+              Start Viewing
             </a>
             <a
               href="contact"
