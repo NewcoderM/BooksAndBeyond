@@ -1,3 +1,5 @@
+![Books And Beyond](assets/images/home-test.jpeg)
+
 A **Full-Stack web application** where users can explore a variety of books, leave comments, and manage user authentication. Built using **Django Rest Framework (DRF)**, **React**, and **SQLite**, it follows **modern UX/UI and accessibility guidelines** while providing a **fully responsive design**.  
 [Project Link](https://booksandbeyond-production.up.railway.app/) 
 ---
@@ -11,32 +13,34 @@ A **Full-Stack web application** where users can explore a variety of books, lea
   - [Data Structure](#data-structure)  
   - [Wireframes](#wireframes)  
 - [🔄 Logic Flows](#-logic-flows)  
-  - [Books Logic](#books-logic)  
-  - [Contact Logic](#contact-logic)  
-  - [Auth Logic](#auth-logic)  
+  - [Books Logic](#-books-logic)  
+  - [Contact Logic](#-contact-logic)  
+  - [Auth Logic](#-auth-logic)  
 - [⚡ Agile Development](#-agile-development)  
-  - [User Stories](#user-stories)  
+  - [User Stories](#-user-stories)  
 - [🎯 Features](#-features)  
-  - [Implemented Features](#implemented-features)  
-  - [Features Left to Implement](#features-left-to-implement)  
+  - [Implemented Features](#-implemented-features)  
+  - [Features Left to Implement](#-features-left-to-implement)  
 - [🛠 Technology Stack](#-technology-stack)  
+- [Api](#-api)
 - [🧪 Testing](#-testing)  
-  - [Manual Testing](#manual-testing)  
-  - [Known Bugs](#known-bugs)  
+  - [Manual Testing](#-manual-testing)  
+  - [Known Bugs](#-known-bugs)  
 - [🚀 Deployment](#-deployment)  
 - [📚 Resources](#-resources)  
 - [🙌 Credits & Acknowledgements](#-credits--acknowledgements)  
 
 ---
 
-## 🌟 Project Overview  
+## 🌟 Project Overview 
 
 - Users can browse books, read descriptions, and leave comments.  
-- Secure user au### 🔹 Admin Features  
+- Secure user auth 🔹 Admin Features  
 ✅ Manage books (Add, Update, Delete)  
 ✅ Moderate user comments  
 ✅ Monitor user activity  
 
+[🔝 Back to Top](#-table-of-contents)
 
 ## 🖥️ UX Design  
 
@@ -57,7 +61,7 @@ The database structure was planned using **Lucidchart** to visualize relationshi
 ![Books Page Responsive](assets/images/books-responsive.jpeg)
 
 --
-![Book Details Page](assets/images/book-details.jpeg)
+![Book Details Page](assets/images/books-details.jpeg)
 
 ![Books Details Page Responsive](assets/images/book-details-responsive.jpeg)
 
@@ -72,15 +76,30 @@ The database structure was planned using **Lucidchart** to visualize relationshi
 
 ### 🔹 User Features  
 ✅ View a collection of books  
+![Book Page](assets/images/books-page.png)
+
 ✅ Read details about each book  
+![Book Details](assets/images/book-comments.png)
+
 ✅ Leave comments on books  
+![Books](assets/images/book-commented.png)
+
 ✅ Secure **Login & Logout** system  
+![Books](assets/images/user-login.png)
+
 
 ### 🔹 Admin Features  
+![Admin Panel](assets/images/admin-panel.png)
+
 ✅ Manage Books
+![Books Management Panel](assets/images/book-details-admin.png)
+
 ✅ See Users
+![Users Management Panel](assets/images/user-management-admin.png)
 
 ---
+
+[🔝 Back to Top](#-table-of-contents)
 
 ---
 
@@ -95,6 +114,8 @@ The database structure was planned using **Lucidchart** to visualize relationshi
 5. Return 200 OK with serialized data → End
 
 ![Flowchart: Books](assets/images/books-logic.jpeg)
+
+[🔝 Back to Top](#-table-of-contents)
 
 ---
 
@@ -119,6 +140,8 @@ The database structure was planned using **Lucidchart** to visualize relationshi
 17. Return 200 OK (with serialized data) → End
 
 ![Flowchart: Contact](assets/images/contact-logic.jpeg)
+
+[🔝 Back to Top](#-table-of-contents)
 
 ### 🔐 Auth Logic 
 # Logic Flows
@@ -172,6 +195,8 @@ The database structure was planned using **Lucidchart** to visualize relationshi
 
 ![Flowchart: Auth](assets/images/auth-logic.jpeg)
 
+[🔝 Back to Top](#-table-of-contents)
+
 ---
 
 ## ⚡ Agile Development  
@@ -184,6 +209,9 @@ To ensure smooth project management, I utilized **Agile methodology** along with
 - **Iterative Development:** Features were implemented in **sprints**, allowing continuous improvement.  
 
 To see the project's **Kanban board**, [click here](https://github.com/users/NewcoderM/projects/3/views/1).  
+
+
+[🔝 Back to Top](#-table-of-contents)
 
 ---
 
@@ -268,6 +296,8 @@ Each **User Story** contributed to the following implemented features:
 
 (*Related to:* `USER STORY: Create UX`)  
 
+[🔝 Back to Top](#-table-of-contents)
+
 ---
 
 ## 🛠 Technology Stack  
@@ -284,7 +314,14 @@ Each **User Story** contributed to the following implemented features:
 ---
 
 
-## 📌 Why I feel API-based architecture (DRF) is better than traditional Django views?  
+## 📌 API 
+
+![API](assets/images/api-home.png)
+
+[Link](https://booksandbeyond-server-production.up.railway.app/api/)
+
+
+Why I feel API-based architecture (DRF) is better than traditional Django views?  
 
 Instead of using **traditional Django views**, we opted for a **RESTful API using DRF**. Here’s why:  
 
@@ -305,6 +342,8 @@ Instead of using **traditional Django views**, we opted for a **RESTful API usin
    - **CORS handling** protects the API from unauthorized access.  
 
 🎥 **[I was influenced by this video](https://www.youtube.com/watch?v=ufgjBJa2M70)**
+
+[🔝 Back to Top](#-table-of-contents)
 
 ---
 
@@ -375,7 +414,7 @@ Testing was conducted on multiple devices, including a **Lenovo Ideapad Laptop**
 
 **📌 Note:** These bugs do not affect core functionality and will be addressed in future updates.  
 
-[🔝 Back to Top](#table-of-contents)
+[🔝 Back to Top](#-table-of-contents)
 
 # Deployment
 
@@ -566,5 +605,5 @@ This project was made possible through the collective efforts of various open-so
 - **Google DevTools** for testing  
 
 ### 🔹 **Special Thanks**  
-A huge thank you to my mentor Spencer Barriball, a person who always dedicted time to help me and not just even in live meetings but also through Slack the whole time.
+A huge thank you to my mentor Spencer Barriball, a person who always dedicated time to help me and not just even in live meetings but also through Slack the whole time.
 Another thank you to Prolet in StudentsCare who was a real help answering to my inquiries and helping with giving me the proper prolonging papers when I got sick. And to all the people in CodeInstitue who are working on supporting me and my fellow learners,..Thank you.
