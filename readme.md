@@ -1,3 +1,5 @@
+
+
 ![Books And Beyond](assets/images/home-test.jpeg)
 
 A **Full-Stack web application** where users can explore a variety of books, leave comments, and manage user authentication. Built using **Django Rest Framework (DRF)**, **React**, and **SQLite**, it follows **modern UX/UI and accessibility guidelines** while providing a **fully responsive design**.  
@@ -7,35 +9,50 @@ A **Full-Stack web application** where users can explore a variety of books, lea
 
 ---
 
-# 📖 BooksAndBeyond  
+# 📖 BooksAndBeyond 
 
-## 📜 Table of Contents  
-- [🌟 Project Overview](#-project-overview)  
-- [🖥️ UX Design](#️-ux-design)  
-  - [Database Planning](#database-planning)  
-  - [Data Structure](#data-structure)  
-  - [Wireframes](#wireframes)  
-- [🔄 Logic Flows](#-logic-flows)  
-  - [Books Logic](#-books-logic)  
-  - [Contact Logic](#-contact-logic)  
-  - [Auth Logic](#-auth-logic)  
-- [⚡ Agile Development](#-agile-development)  
-  - [User Stories](#-user-stories)  
-- [🎯 Features](#-features)  
-  - [Implemented Features](#-implemented-features)  
-  - [Features Left to Implement](#-features-left-to-implement)  
-- [🛠 Technology Stack](#-technology-stack)  
-- [Api](#-api)
-- [🧪 Testing](#-testing)  
-  - [Manual Testing](#-manual-testing)  
-  - [Known Bugs](#-known-bugs)  
-- [🚀 Deployment](#-deployment)  
-- [📚 Resources](#-resources)  
-- [🙌 Credits & Acknowledgements](#-credits--acknowledgements)  
+## 📜 Table of Contents
+- [🌟 Project Overview](#-project-overview)
+- - [🖥️ UX Design](#️-ux-design)
+- [Database Planning](#database-planning)
+- [Data Structure](#data-structure)
+- [Wireframes](#wireframes)
+
+- [🔄 Logic Flows](#-logic-flows) 
+  - [Auth Logic](#auth-logic)
+  - [Books Logic](#books-logic)
+  - [Contact Logic](#contact-logic)
+  
+- [⚡ Agile Development](#-agile-development)
+  - [Overview](#overview)
+  - [User Stories](#user-stories)
+  - [List of User Stories](#list-of-user-stories)
+- [🎯 Features](#-features)
+  - [Features Implemented](#features-implemented)
+  - [Features Left to Implement](#features-left-to-implement)
+
+- [🛠 Technology Stack](#-technology-stack)
+  - [API](#api)
+- [🧪 Testing](#-testing)
+  - [Manual Testing](#manual-testing)
+  - [Known Bugs and Issues](#known-bugs-and-issues)
+- [🚀Deployment](#deployment)
+- [📚 Resources](#-resources)
+- [🙌 Credits & Acknowledgements](#-credits--acknowledgements)
+
+
+
+
+
+
+
+
+
+
 
 ---
 
-## 🌟 Project Overview 
+# 🌟 Project Overview 
 
 - Users can browse books, read descriptions, and leave comments.  
 - Secure user auth 🔹 Admin Features  
@@ -47,13 +64,14 @@ A **Full-Stack web application** where users can explore a variety of books, lea
 
 ## 🖥️ UX Design  
 
-### Database Planning  
+## Database Planning
+ 
 The database structure was planned using **Lucidchart** to visualize relationships between data models.  
 
-### Data Structure  
+## Data Structure  
 ![Data Structure](assets/images/db_structure.jpeg)
 
-### Wireframes  
+## Wireframes  
 ![Home Page](assets/images/home.jpeg)
 
 ![Home Page Responsive](assets/images/home-responsive.jpeg)
@@ -75,79 +93,10 @@ The database structure was planned using **Lucidchart** to visualize relationshi
 
 ---
 
-## 🎯 Features  
 
-### 🔹 User Features  
-✅ View a collection of books  
-![Book Page](assets/images/books-page.png)
+# 🔄 Logic Flows  
 
-✅ Read details about each book  
-![Book Details](assets/images/book-comments.png)
-
-✅ Leave comments on books  
-![Books](assets/images/book-commented.png)
-
-✅ Secure **Login & Logout** system  
-![Books](assets/images/user-login.png)
-
-
-### 🔹 Admin Features  
-![Admin Panel](assets/images/admin-panel.png)
-
-✅ Manage Books
-![Books Management Panel](assets/images/book-details-admin.png)
-
-✅ See Users
-![Users Management Panel](assets/images/user-management-admin.png)
-
----
-
-[🔝 Back to Top](#-table-of-contents)
-
----
-
-## 🔄 Logic Flows  
-
-### 📚 Books Logic  
-
-1. Start
-2. Retrieve book object by ID (from URL/path parameter)
-3. Fetch all comments for the book (e.g., book.comments.all())
-4. Serialize comments (using CommentSerializer)
-5. Return 200 OK with serialized data → End
-
-![Flowchart: Books](assets/images/books-logic.jpeg)
-
-[🔝 Back to Top](#-table-of-contents)
-
----
-
-### 📩 Contact Logic    
-
-1. Start
-2. Check request method:
-3. POST:
-4. Create serializer with request.data
-5. Is serializer valid?
-6. No:
-7. Return 400 Bad Request (with errors) → End
-8. Yes:
-9. Save data (to database)
-10. Return 201 Created → End
-11. GET Flow (List Contacts)
-12. Start
-13. Check request method:
-14. GET:
-15. Fetch all contacts from the database
-16. Serialize contacts data (using ContactSerializer)
-17. Return 200 OK (with serialized data) → End
-
-![Flowchart: Contact](assets/images/contact-logic.jpeg)
-
-[🔝 Back to Top](#-table-of-contents)
-
-### 🔐 Auth Logic 
-# Logic Flows
+### 🔐Auth Logic 
 
 ## 1. Register Flow
 **Purpose:** Allow users to create an account.
@@ -198,13 +147,54 @@ The database structure was planned using **Lucidchart** to visualize relationshi
 
 ![Flowchart: Auth](assets/images/auth-logic.jpeg)
 
+
+
+### 📚Books Logic  
+
+1. Start
+2. Retrieve book object by ID (from URL/path parameter)
+3. Fetch all comments for the book (e.g., book.comments.all())
+4. Serialize comments (using CommentSerializer)
+5. Return 200 OK with serialized data → End
+
+![Flowchart: Books](assets/images/books-logic.jpeg)
+
+
+---
+
+### 📩Contact Logic    
+
+1. Start
+2. Check request method:
+3. POST:
+4. Create serializer with request.data
+5. Is serializer valid?
+6. No:
+7. Return 400 Bad Request (with errors) → End
+8. Yes:
+9. Save data (to database)
+10. Return 201 Created → End
+11. GET Flow (List Contacts)
+12. Start
+13. Check request method:
+14. GET:
+15. Fetch all contacts from the database
+16. Serialize contacts data (using ContactSerializer)
+17. Return 200 OK (with serialized data) → End
+
+![Flowchart: Contact](assets/images/contact-logic.jpeg)
+
 [🔝 Back to Top](#-table-of-contents)
+
 
 ---
 
 ## ⚡ Agile Development  
 
-### 📌 **Overview**  
+### 📌Overview 
+
+![KanbanBoard](assets/images/user-story-listä.png)
+
 To ensure smooth project management, I utilized **Agile methodology** along with a **Kanban board** in GitHub Projects. This approach helped in tracking progress, managing tasks, and ensuring timely completion of features.  
 
 - **Epics & User Stories:** The project was broken down into **user stories** to prioritize development.  
@@ -214,11 +204,12 @@ To ensure smooth project management, I utilized **Agile methodology** along with
 To see the project's **Kanban board**, [click here](https://github.com/users/NewcoderM/projects/3/views/1).  
 
 
-[🔝 Back to Top](#-table-of-contents)
-
 ---
+  
+### 📌User Stories
 
-### **📌 User Stories**  
+![KanbanBoard12](assets/images/user-story-details.png)
+
 To build a user-centric product, I stepped into the shoes of future users and identified essential features and functionalities. This led to the creation of **12 User Stories**:  
 - **6 Mandatory** stories, providing core functionality.  
 
@@ -231,7 +222,7 @@ As tasks were completed, user stories moved from **"In Progress"** to **"Complet
 
 ---
 
-### **📋 List of User Stories**  
+### 📋List of User Stories  
 
 #### ✅ **Mandatory User Stories**  
 1. **USER STORY: User needs to authenticate**  
@@ -241,9 +232,43 @@ As tasks were completed, user stories moved from **"In Progress"** to **"Complet
 5. **USER STORY: Structure Database**  
 6. **USER STORY: Create UX**  
 
+
+
+[🔝 Back to Top](#-table-of-contents)
 ---
 
-## 🚀 Features Implemented  
+## 🎯 Features 
+
+### 🔹 User Features  
+✅ View a collection of books  
+![Book Page](assets/images/books-page.png)
+
+✅ Read details about each book  
+![Book Details](assets/images/book-comments.png)
+
+✅ Leave comments on books  
+![Books](assets/images/book-commented.png)
+
+✅ Secure **Login & Logout** system  
+![Books](assets/images/user-login.png)
+
+
+### 🔹 Admin Features  
+![Admin Panel](assets/images/admin-panel.png)
+
+✅ Manage Books
+![Books Management Panel](assets/images/book-details-admin.png)
+
+✅ See Users
+![Users Management Panel](assets/images/user-management-admin.png)
+
+---
+
+[🔝 Back to Top](#-table-of-contents)
+
+---
+
+## 🚀Features Implemented
 
 Each **User Story** contributed to the following implemented features:
 
@@ -301,6 +326,23 @@ Each **User Story** contributed to the following implemented features:
 
 [🔝 Back to Top](#-table-of-contents)
 
+
+## Features Left to Implement
+
+I have several enhancements planned to improve the platform's functionality and user experience. Here are some key features that I intend to implement in future updates:
+
+Comment Management – Allow users to delete and edit their own comments for better interaction control.
+Profile Enhancements – Enable users to update their profile details, including changing their username, profile picture, and password.
+Notifications System – Implement in-app or email notifications for replies to comments, new book additions, and important updates.
+Advanced Search & Filtering – Improve book discovery with filters for categories, authors, and user ratings to make navigation easier.
+Bookmark & Reading List – Allow users to save books to a personal reading list and track their progress.
+User Roles & Permissions – Introduce different roles, such as moderators, to help manage content and maintain community guidelines.
+Dark Mode – Add a dark mode option for a better reading experience in low-light environments.
+Review & Rating System – Enhance community engagement by allowing users to rate books and leave structured reviews.
+These features will significantly enhance the platform, making it more interactive, user-friendly, and feature-rich. Stay tuned for future updates! 🚀
+
+
+[🔝 Back to Top](#-table-of-contents)
 ---
 
 ## 🛠 Technology Stack  
@@ -314,10 +356,14 @@ Each **User Story** contributed to the following implemented features:
 | **Fetch** | API requests from React |
 | **React Router** | Navigation between pages |
 | **Railway** | Deployment platform for hosting backend and frontend |
+
+
+[🔝 Back to Top](#-table-of-contents)
 ---
 
 
-## 📌 API 
+## 📌API 
+
 
 ![API](assets/images/api-home.png)
 
@@ -350,7 +396,7 @@ Instead of using **traditional Django views**, we opted for a **RESTful API usin
 
 ---
 
-## 🛠️ Testing
+## 🧪 Testing
 
 ### 📱 Responsiveness  
 Testing was conducted on multiple devices, including a **Lenovo Ideapad Laptop** and a **Samsung Galaxy A5**, using the latest versions of **Google Chrome, Mozilla Firefox, and Opera**. For more detailed testing, **Google DevTools** was used to simulate different screen sizes.  
@@ -366,7 +412,7 @@ Testing was conducted on multiple devices, including a **Lenovo Ideapad Laptop**
 ![Test: Contact Page](assets/images/contact-test.jpeg)
 ---
 
-### ✅ **Manual Testing**  
+### ✅Manual Testing  
 
 #### **Account Registration Tests**  
 | Test | Result |
@@ -410,7 +456,7 @@ Testing was conducted on multiple devices, including a **Lenovo Ideapad Laptop**
 
 ---
 
-### 🐞 Known Bugs & Issues  
+### 🐞Known Bugs and Issues  
 - 🔹 **Minor UI Issue:** Some elements may slightly misalign on very small screens.  
 - 🔹 **Button Styling Issue:** A green submit button is automatically generated by the form system and does not follow the custom styling.  
 - 🔹 **Past Booking Prevention:** The function that prevents users from selecting past dates for a booking is not fully working. However, admins can still verify and reject such bookings manually.  
@@ -419,7 +465,7 @@ Testing was conducted on multiple devices, including a **Lenovo Ideapad Laptop**
 
 [🔝 Back to Top](#-table-of-contents)
 
-# Deployment
+# 🚀Deployment
 
 I deployed my fullstack Django + React project on [Railway](https://railway.app/). I chose Railway over Heroku because SQLite (which I used for my database) is not well-suited for Heroku's ephemeral filesystem.
 
@@ -563,6 +609,9 @@ python manage.py createsuperuser
 ## 🎉 Deployment Completed!
 My Django + React app is now live on Railway! 🚀
 
+
+[🔝 Back to Top](#-table-of-contents)
+
 ---
 
 ## 📚 Resources  
@@ -610,3 +659,7 @@ This project was made possible through the collective efforts of various open-so
 ### 🔹 **Special Thanks**  
 A huge thank you to my mentor Spencer Barriball, a person who always dedicated time to help me and not just even in live meetings but also through Slack the whole time.
 Another thank you to Prolet in StudentsCare who was a real help answering to my inquiries and helping with giving me the proper prolonging papers when I got sick. And to all the people in CodeInstitue who are working on supporting me and my fellow learners,..Thank you.
+
+
+
+[🔝 Back to Top](#-table-of-contents)
