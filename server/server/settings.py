@@ -112,11 +112,10 @@ WSGI_APPLICATION = 'server.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-BASE_DB_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DB_DIR, 'data', 'db.sqlite3'),  # Store DB inside the persistent volume
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
