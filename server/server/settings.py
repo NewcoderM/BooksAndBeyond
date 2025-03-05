@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 from dotenv import load_dotenv
 import os
-import django_heroku
 
 load_dotenv()
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
@@ -35,18 +34,34 @@ CSRF_COOKIE_SECURE = True
 
 SESSION_COOKIE_SECURE = True
 
+# Serving static files (CSS, JS)
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000", 
     "http://localhost:5173", 
+    "http://localhost:4173", 
     "http://127.0.0.1:3000", 
     "http://127.0.0.1:5173", 
-]
-
-CSRF_TRUSTED_ORIGINS = [
+    "http://127.0.0.1:4173", 
     "https://booksandbeyond-server-production.up.railway.app", 
 ]
 
-ALLOWED_HOSTS=['.railway.app']
+CSRF_TRUSTED_ORIGINS = [
+    "booksandbeyond-server-production.up.railway.app", 
+]
+
+ALLOWED_HOSTS = [
+    'booksandbeyond-server-production.up.railway.app', 
+    'localhost',
+    '127.0.0.1',
+    '.railway.app',
+]
+
+
+PORT = os.getenv('PORT', '8080')
 
 CORS_ALLOW_CREDENTIALS = True
 
@@ -71,7 +86,16 @@ INSTALLED_APPS = [
     'contact',
 ]
 
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://booksandbeyond-server-production.up.railway.app",
+]
+
+
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -115,9 +139,10 @@ WSGI_APPLICATION = 'server.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),  # Path to the SQLite database file
     }
 }
+
 
 
 # Password validation
@@ -166,10 +191,3 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 AUTH_USER_MODEL = 'customer.Customer'
-
-# Serving static files (CSS, JS)
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-
-django_heroku.settings(locals())
