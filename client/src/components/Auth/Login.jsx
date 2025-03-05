@@ -29,6 +29,7 @@ const Login = () => {
         const data = await response.json();
         navigate(-1);
         localStorage.setItem("token", data.token);
+        localStorage.setItem("user", data.username);
       } else {
         const errorData = await response.json();
         console.log("Login failed:", errorData);

@@ -28,6 +28,7 @@ const Navbar = () => {
 
     if (response.ok) {
       localStorage.removeItem("token");
+      localStorage.removeItem("user");
       navigate(0);
     } else {
       const errorData = await response.json();

@@ -24,11 +24,19 @@ class CustomLoginView(APIView):
         if serializer.is_valid():
             # Get the user from validated data
             user = serializer.validated_data['user']
+            
             # Get or create the auth token
             token, created = Token.objects.get_or_create(user=user)
-            return Response({'token': token.key})
+
+            # Return token and only the necessary user fields (e.g., username, id)
+            return Response({
+                'token': token.key,
+                'username': user.username,  # Return the username field
+                'user_id': user.id  # Optionally, return user id
+            })
         else:
             return Response(serializer.errors, status=400)
+
 
 class LogoutView(APIView):
     permission_classes = [IsAuthenticated]

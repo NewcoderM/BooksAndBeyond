@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Layout from "../Layout";
+import { Pencil, Trash } from "lucide-react";
 
 const Details = () => {
   const [loading, setLoading] = useState(true);
@@ -9,6 +10,8 @@ const Details = () => {
   const [comments, setComments] = useState(null);
   const [newComment, setNewComment] = useState("");
   const isAuthenticated = localStorage.getItem("token");
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedComment, setEditedComment] = useState();
 
   const { id } = useParams();
 
@@ -91,6 +94,76 @@ const Details = () => {
     }
   };
 
+  const handleEditSubmit = async (e, comment) => {
+    e.preventDefault(); // Prevent the default form submission
+
+    try {
+      // Ensure editedComment is just a string
+      const updatedCommentData = {
+        text: editedComment, // Only the string to update
+      };
+
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/comments/${comment.id}/`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Token ${localStorage.getItem("token")}`,
+          },
+          body: JSON.stringify(updatedCommentData), // Only send the necessary fields (e.g., text)
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to update comment");
+      }
+
+      const updatedComment = await response.json();
+
+      // Update the comment in the state
+      setComments((prevComments) =>
+        prevComments.map((c) =>
+          c.id === updatedComment.id ? updatedComment : c
+        )
+      );
+
+      setIsEditing(false); // Close the editing state
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
+  // Handle delete request
+  const handleDelete = async (commentId) => {
+    if (!window.confirm("Are you sure you want to delete this comment?")) {
+      return;
+    }
+
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/comments/${commentId}/`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Token ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to delete comment");
+      }
+
+      setComments((prevComments) =>
+        prevComments.filter((comment) => comment.id !== commentId)
+      );
+    } catch (error) {
+      console.error("Error deleting comment:", error);
+      setError("Failed to delete comment");
+    }
+  };
+
   if (loading) {
     return (
       <Layout>
@@ -151,12 +224,46 @@ const Details = () => {
                 {comments.map((comment) => (
                   <div
                     key={comment.id}
-                    className="border p-3 rounded bg-gray-100 shadow-sm"
+                    className="border p-3 rounded bg-gray-100 shadow-sm flex flex-row justify-between items-center"
                   >
-                    <p className="text-sm font-semibold text-gray-700">
-                      {comment.user}
-                    </p>
-                    <p className="text-gray-900">{comment.text}</p>
+                    {isEditing ? (
+                      <form
+                        onSubmit={(e) => handleEditSubmit(e, comment)}
+                        className="mt-2 flex flex-row justify-center items-center space-x-4"
+                      >
+                        <textarea
+                          className="w-full border rounded-lg p-2"
+                          value={editedComment}
+                          onChange={(e) => setEditedComment(e.target.value)}
+                        />
+                        <button
+                          className="mt-2 px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600"
+                          type="submit"
+                        >
+                          Save
+                        </button>
+                      </form>
+                    ) : (
+                      <p className="text-gray-900">{comment.text}</p>
+                    )}
+                    <div className="flex flex-row justfify-center items-center space-x-4">
+                      <p className="text-sm font-semibold text-gray-700">
+                        Commented By {comment.customer.username}
+                      </p>
+                      {localStorage.getItem("user") ===
+                        comment.customer?.username && (
+                        <div className="flex space-x-2">
+                          {/* Edit Icon */}
+                          <button onClick={() => setIsEditing(!isEditing)}>
+                            <Pencil className="w-5 h-5 text-blue-500 hover:text-blue-700 cursor-pointer" />
+                          </button>
+                          {/* Delete Icon */}
+                          <button onClick={() => handleDelete(comment.id)}>
+                            <Trash className="w-5 h-5 text-red-500 hover:text-red-700 cursor-pointer" />
+                          </button>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 ))}
               </div>
