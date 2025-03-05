@@ -3,7 +3,7 @@
 ![Books And Beyond](assets/images/home-test.jpeg)
 
 A **Full-Stack web application** where users can explore a variety of books, leave comments, and manage user authentication. Built using **Django Rest Framework (DRF)**, **React**, and **SQLite**, it follows **modern UX/UI and accessibility guidelines** while providing a **fully responsive design**.  
-[Project Link](https://booksandbeyond-production.up.railway.app/) 
+[live Link to the webpage](https://booksandbeyond-production.up.railway.app/) 
 
 [Admin Panel](https://booksandbeyond-server-production.up.railway.app/admin/login/?next=/admin/) 
 
