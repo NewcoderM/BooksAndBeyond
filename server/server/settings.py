@@ -46,15 +46,14 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000", 
     "http://127.0.0.1:5173", 
     "http://127.0.0.1:4173", 
-    "https://booksandbeyond-server-production.up.railway.app", 
+    "https://booksandbeyond-production.up.railway.app", 
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "booksandbeyond-server-production.up.railway.app", 
+    "booksandbeyond-production.up.railway.app", 
 ]
 
 ALLOWED_HOSTS = [
-    'booksandbeyond-server-production.up.railway.app', 
     'localhost',
     '127.0.0.1',
     '.railway.app',
@@ -139,10 +138,9 @@ WSGI_APPLICATION = 'server.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),  # Path to the SQLite database file
+        'NAME': os.path.join("/tmp", "db.sqlite3"),
     }
 }
-
 
 
 # Password validation
