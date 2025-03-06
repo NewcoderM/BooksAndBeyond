@@ -6,12 +6,16 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
     port: 3000,
-    host: '0.0.0.0',
-  },  
-  preview: {
-    allowedHosts: ["booksandbeyond.onrender.com"] 
+    host: '0.0.0.0', // Allows access from any host
+    proxy: {
+      '/api': 'https://booksandbeyond-server.onrender.com', // Add proxy if you're calling API in production
+    }
   },
   build: {
-    outDir: 'build'
+    outDir: 'build', // Specifies the output directory for your production build
+  },
+  preview: {
+    // For local preview only, but it's fine to keep it here as fallback
+    allowedHosts: ["booksandbeyond.onrender.com"]
   }
 });
