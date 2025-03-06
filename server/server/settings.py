@@ -46,11 +46,11 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000", 
     "http://127.0.0.1:5173", 
     "http://127.0.0.1:4173", 
-    "https://booksandbeyond-production.up.railway.app", 
+    "https://booksandbeyond.onrender.com", 
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "booksandbeyond-production.up.railway.app", 
+    "https://booksandbeyond.onrender.com", 
 ]
 
 ALLOWED_HOSTS = [
@@ -89,7 +89,7 @@ CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://booksandbeyond-server-production.up.railway.app",
+    "https://booksandbeyond.onrender.com",
 ]
 
 
