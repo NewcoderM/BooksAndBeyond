@@ -5,6 +5,7 @@ import Login from "./components/Auth/Login";
 import Contact from "./components/Contact";
 import Books from "./components/Books";
 import Home from "./components/Home";
+import NotFound from "./notFound";
 
 const BaseRouter = () => {
   return (
@@ -16,6 +17,7 @@ const BaseRouter = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );

@@ -51,7 +51,7 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://booksandbeyond.onrender.com", 
+    "booksandbeyond.onrender.com", 
 ]
 
 ALLOWED_HOSTS = [
@@ -88,10 +88,6 @@ INSTALLED_APPS = [
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
-
-CSRF_TRUSTED_ORIGINS = [
-    "https://booksandbeyond.onrender.com",
-]
 
 
 MIDDLEWARE = [
