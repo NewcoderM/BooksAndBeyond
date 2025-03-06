@@ -60,6 +60,10 @@ ALLOWED_HOSTS = [
     '.onrender.com',
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    'https://booksandbeyond.onrender.com', 
+]
+
 
 PORT = os.getenv('PORT', '8080')
 
