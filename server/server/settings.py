@@ -51,17 +51,13 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "booksandbeyond.onrender.com", 
+    "https://booksandbeyond.onrender.com", 
 ]
 
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     '.onrender.com',
-]
-
-CORS_ALLOWED_ORIGINS = [
-    'https://booksandbeyond.onrender.com', 
 ]
 
 
@@ -92,6 +88,10 @@ INSTALLED_APPS = [
 
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://booksandbeyond.onrender.com",
+]
 
 
 MIDDLEWARE = [
@@ -148,7 +148,6 @@ DATABASES = {
         'PORT': result.port,
     }
 }
-
 
 
 # Password validation
