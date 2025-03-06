@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 from dotenv import load_dotenv
+from urllib.parse import urlparse
 import os
 
 load_dotenv()
@@ -133,14 +134,21 @@ WSGI_APPLICATION = 'server.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+DATABASE_URL = os.getenv('DATABASE_URL')
+
+result = urlparse(DATABASE_URL)
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join("/tmp", "db.sqlite3"),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': result.path[1:],  # Removing the leading slash
+        'USER': result.username,
+        'PASSWORD': result.password,
+        'HOST': result.hostname,
+        'PORT': result.port,
     }
 }
+
 
 
 # Password validation
