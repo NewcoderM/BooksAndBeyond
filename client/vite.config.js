@@ -9,7 +9,8 @@ export default defineConfig({
     host: '0.0.0.0', // Allows access from any host
     proxy: {
       '/api': 'https://booksandbeyond-server.onrender.com', // Add proxy if you're calling API in production
-    }
+    },
+    allowedHosts: ["booksandbeyond.onrender.com"] 
   },
   build: {
     outDir: 'build', // Specifies the output directory for your production build
