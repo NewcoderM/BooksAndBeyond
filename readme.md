@@ -321,7 +321,7 @@ Each **User Story** contributed to the following implemented features:
 |---------------|------------|
 | **Django Rest Framework (DRF)** | Backend API |
 | **React** | Frontend UI |
-| **SQLite** | Database |
+| **PostgreSQL** | Database |
 | **JWT Authentication** | Secure user login/logout |
 | **Tailwind** | Responsive design |
 | **Fetch** | API requests from React |
@@ -435,7 +435,7 @@ Testing was conducted on multiple devices, including a **Lenovo Ideapad Laptop**
 
 [🔝 Back to Top](#-table-of-contents)
 
-# 🚀 Deployment
+# 🚀Deployment
 
 I deployed my fullstack Django + React project on [Render.com](https://render.com/). I chose Render over other services because it offers easy PostgreSQL integration, robust persistent storage, and seamless Cloudinary support for media management.
 
