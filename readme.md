@@ -29,7 +29,6 @@ A **Full-Stack web application** where users can explore a variety of books, lea
   - [List of User Stories](#list-of-user-stories)
 - [🎯 Features](#-features)
   - [Features Implemented](#features-implemented)
-  - [Features Left to Implement](#features-left-to-implement)
 
 - [🛠 Technology Stack](#-technology-stack)
   - [API](#api)
@@ -313,24 +312,6 @@ Each **User Story** contributed to the following implemented features:
 - Used **modern styling frameworks** to enhance aesthetics and usability.  
 
 (*Related to:* `USER STORY: Create UX`)  
-
-[🔝 Back to Top](#-table-of-contents)
-
-
-## Features Left to Implement
-
-I have several enhancements planned to improve the platform's functionality and user experience. Here are some key features that I intend to implement in future updates:
-
-Comment Management – Allow users to delete and edit their own comments for better interaction control.
-Profile Enhancements – Enable users to update their profile details, including changing their username, profile picture, and password.
-Notifications System – Implement in-app or email notifications for replies to comments, new book additions, and important updates.
-Advanced Search & Filtering – Improve book discovery with filters for categories, authors, and user ratings to make navigation easier.
-Bookmark & Reading List – Allow users to save books to a personal reading list and track their progress.
-User Roles & Permissions – Introduce different roles, such as moderators, to help manage content and maintain community guidelines.
-Dark Mode – Add a dark mode option for a better reading experience in low-light environments.
-Review & Rating System – Enhance community engagement by allowing users to rate books and leave structured reviews.
-These features will significantly enhance the platform, making it more interactive, user-friendly, and feature-rich. Stay tuned for future updates! 🚀
-
 
 [🔝 Back to Top](#-table-of-contents)
 ---
