@@ -338,7 +338,7 @@ Each **User Story** contributed to the following implemented features:
 
 ![API](assets/images/api-home.png)
 
-[Link](https://booksandbeyond-server-production.up.railway.app/api/)
+[Link](https://booksandbeyond-server.onrender.com/api/)
 
 
 Why I feel API-based architecture (DRF) is better than traditional Django views?  
@@ -545,12 +545,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 ### 2.5 Deploying the Backend
 Once the changes were made, I committed and pushed them to GitHub. In Render, I followed these steps:
-
+```
 Created a new Web Service → GitHub Repo → Selected backend.
 Set PYTHON_VERSION=3.9 in Environment Variables.
 Set DATABASE_URL (provided by Render) in Environment Variables.
 Set CLOUDINARY_URL (obtained from Cloudinary) in Environment Variables.
 Clicked Deploy.
+```
 ---
 ## 3. Deploying the Frontend (React)
 I deployed the React frontend on Render as well by creating a Static Site.
@@ -610,7 +611,7 @@ I committed the changes and pushed them to GitHub. Then, in Railway:
 ## 4. Final Steps
 
 ### 4.1 Migrating My Database
-In Railway, I opened the *backend terminal* and ran:
+In Render, I opened the *backend terminal* and ran:
 
 sh
 python manage.py migrate
@@ -622,7 +623,7 @@ sh
 python manage.py createsuperuser
 
 ## 🎉 Deployment Completed!
-My Django + React app is now live on Railway! 🚀
+My Django + React app is now live on Render! 🚀
 
 
 [🔝 Back to Top](#-table-of-contents)
@@ -632,7 +633,7 @@ My Django + React app is now live on Railway! 🚀
 ## 📚 Resources  
 - **[Django Rest Framework Docs](https://www.django-rest-framework.org/)**  
 - **[React Docs](https://reactjs.org/)**  
-- **[Railway Deployment Guide](https://docs.railway.app/)**  
+- **[Render Deployment Guide](https://docs.render.com/)**  
 
 ----
 
@@ -653,6 +654,7 @@ This project was made possible through the collective efforts of various open-so
 10. [Deploying Django + React on Railway](https://www.youtube.com/watch?v=WpFL7kZ-c9g)  
 11. [Best UX/UI Practices](https://www.youtube.com/watch?v=_Q-FQsJpU-I)  
 12. [Kanban Board & Agile Development](https://www.youtube.com/watch?v=R8dYLbJiTUE)  
+13. [Django Deploy with Render, PostgreSQL, Cloudinary, Gmail, Github & Tailwind]([https://www.youtube.com/watch?v=R8dYLbJiTUE](http://youtube.com/watch?v=IkHKg5Unniw))  
 
 ### 🔹 **Development & Learning Platforms**  
 - [Django Rest Framework Official Docs](https://www.django-rest-framework.org/)  
