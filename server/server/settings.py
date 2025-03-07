@@ -192,7 +192,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Serving media files (images, documents, etc.)
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/static/media/'  # Serve media from static files
+MEDIA_ROOT = os.path.join(STATIC_ROOT, 'media') 
 
 AUTH_USER_MODEL = 'customer.Customer'

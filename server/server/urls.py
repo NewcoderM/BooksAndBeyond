@@ -26,5 +26,6 @@ urlpatterns = [
     path('', include('customer.urls'))
 ]
 
+# Serve media files from static folder
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
