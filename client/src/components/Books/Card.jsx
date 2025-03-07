@@ -10,7 +10,7 @@ const Card = ({ book }) => {
       onClick={() => navigate(`/books/${book.id}`)}
     >
       <img
-        src={book.cover}
+        src={import.meta.env.VITE_CLOUDINARY_URL+book.cover_image}
         alt={book.title}
         className="w-full h-60 object-cover rounded"
       />

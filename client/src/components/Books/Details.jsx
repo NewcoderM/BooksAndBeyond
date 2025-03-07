@@ -200,7 +200,7 @@ const Details = () => {
         <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6">
           {/* Book Cover */}
           <img
-            src={book.cover}
+            src={import.meta.env.VITE_CLOUDINARY_URL+book.cover_image}
             alt={book.title}
             className="w-full lg:w-1/3 h-80 object-cover rounded-lg shadow-lg"
           />
