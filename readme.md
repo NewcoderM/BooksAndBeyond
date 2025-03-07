@@ -35,7 +35,7 @@ A **Full-Stack web application** where users can explore a variety of books, lea
 - [🧪 Testing](#-testing)
   - [Manual Testing](#manual-testing)
   - [Known Bugs and Issues](#known-bugs-and-issues)
-- [🚀Deployment](#deployment)
+- [🚀 Deployment](#-deployment)
 - [📚 Resources](#-resources)
 - [🙌 Credits & Acknowledgements](#-credits--acknowledgements)
 ---
@@ -435,7 +435,7 @@ Testing was conducted on multiple devices, including a **Lenovo Ideapad Laptop**
 
 [🔝 Back to Top](#-table-of-contents)
 
-# 🚀Deployment
+# 🚀 Deployment
 
 I deployed my fullstack Django + React project on [Render.com](https://render.com/). I chose Render over other services because it offers easy PostgreSQL integration, robust persistent storage, and seamless Cloudinary support for media management.
 
