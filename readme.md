@@ -2,10 +2,10 @@
 
 ![Books And Beyond](assets/images/home-test.jpeg)
 
-A **Full-Stack web application** where users can explore a variety of books, leave comments, and manage user authentication. Built using **Django Rest Framework (DRF)**, **React**, and **SQLite**, it follows **modern UX/UI and accessibility guidelines** while providing a **fully responsive design**.  
-[live Link to the webpage](https://booksandbeyond-production.up.railway.app/) 
+A **Full-Stack web application** where users can explore a variety of books, leave comments, and manage user authentication. Built using **Django Rest Framework (DRF)**, **React**, and **PostgreSQL**, it follows **modern UX/UI and accessibility guidelines** while providing a **fully responsive design**.  
+[live Link to the webpage](https://booksandbeyond.onrender.com/) 
 
-[Admin Panel](https://booksandbeyond-server-production.up.railway.app/admin/login/?next=/admin/) 
+[Admin Panel](https://booksandbeyond-server.onrender.com/admin) 
 
 ---
 
@@ -39,17 +39,6 @@ A **Full-Stack web application** where users can explore a variety of books, lea
 - [🚀Deployment](#deployment)
 - [📚 Resources](#-resources)
 - [🙌 Credits & Acknowledgements](#-credits--acknowledgements)
-
-
-
-
-
-
-
-
-
-
-
 ---
 
 # 🌟 Project Overview 
@@ -303,7 +292,8 @@ Each **User Story** contributed to the following implemented features:
 ### 💬 **Book Commenting System**  
 - Users can **leave comments** on book pages.  
 - Implemented **comment moderation features**, ensuring appropriate content.  
-- Comments are displayed in a structured manner, showing user details and timestamps.  
+- Comments are displayed in a structured manner, showing user details and timestamps.
+- User can update and delete their own comments 
 
 (*Related to:* `USER STORY: Need a place to comment on a book`)  
 
@@ -464,87 +454,132 @@ Testing was conducted on multiple devices, including a **Lenovo Ideapad Laptop**
 
 [🔝 Back to Top](#-table-of-contents)
 
-# 🚀Deployment
+# 🚀 Deployment
 
-I deployed my fullstack Django + React project on [Railway](https://railway.app/). I chose Railway over Heroku because SQLite (which I used for my database) is not well-suited for Heroku's ephemeral filesystem.
-
----
-
-## Why I Chose Railway
-
-- *Persistent Storage*: Unlike Heroku, which resets its filesystem on every deploy, Railway provides persistent storage, making it suitable for SQLite.
-- *Easy Deployments*: Railway allows seamless deployments for both backend and frontend in a single project.
-- *Built-in Database Support*: While I used SQLite for simplicity, Railway also supports PostgreSQL, MySQL, and more.
+I deployed my fullstack Django + React project on [Render.com](https://render.com/). I chose Render over other services because it offers easy PostgreSQL integration, robust persistent storage, and seamless Cloudinary support for media management.
 
 ---
 
-## 1. Setting Up My Railway Project
+## Why I Chose Render
 
-1. Signed up at [Railway](https://railway.app/).
-2. Clicked "New Project" and chose *Deploy from GitHub*.
-3. Connected my GitHub repository.
+- *Persistent Storage*: Render provides reliable persistent storage and automatic scaling, making it perfect for my Django backend.
+- *PostgreSQL Database*: Render offers managed PostgreSQL databases, which I use for my production database, ensuring stability and performance.
+- *Cloudinary Integration*: For handling media files like images, I use Cloudinary, which is integrated seamlessly for file storage and CDN delivery.
+
+---
+
+## 1. Setting Up My Render Project
+
+1. Signed up at [Render.com](https://render.com/).
+2. Created a new Web Service and connected my GitHub repository.
 
 ---
 
 ## 2. Deploying My Backend (Django)
 
-### 2.1 Setting Up Procfile
-I created a Procfile in my Django project root:
+### 2.1 Setting Up `Procfile`
+To tell Render how to run my application, I created a `Procfile` in my Django project root:
 
-sh
+```
 echo 'web: gunicorn myproject.wsgi' > Procfile
-
-
+````
 ### 2.2 Installing Dependencies
-I ensured my requirements.txt had the necessary dependencies:
+Make sure my requirements.txt includes the following dependencies for Django, PostgreSQL, Cloudinary, and other necessary packages:
 
-txt
-gunicorn
-django
-django-cors-headers
-djangorestframework
-dotenv
-
+```
+gunicorn               # WSGI HTTP Server for running Django in production
+django                 # The main framework for the backend
+django-cors-headers    # To handle Cross-Origin Resource Sharing (CORS)
+djangorestframework    # For building the API with Django REST Framework
+dotenv                 # To manage environment variables from `.env` file
+psycopg2               # PostgreSQL adapter for Python
+cloudinary             # Cloudinary SDK for Python
+django-cloudinary-storage  # Django storage backend for Cloudinary integration
+````
 
 ### 2.3 Configuring settings.py
-I modified settings.py:
+I modified the settings.py file to work with PostgreSQL, Cloudinary, and environment variables.
 
-python
+Database Configuration (PostgreSQL)
+I updated the database settings to use PostgreSQL and used dj_database_url to parse the database URL provided by Render:
+
+```
 import os
 import dj_database_url
 
 DEBUG = False
 ALLOWED_HOSTS = ['*']
 
+# PostgreSQL Database Configuration
+DATABASE_URL = os.getenv('DATABASE_URL')
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    'default': dj_database_url.config(default=DATABASE_URL)
+}
+```
+### 2.3 Configuring settings.py
+I modified the settings.py file to work with PostgreSQL, Cloudinary, and environment variables.
+
+Database Configuration (PostgreSQL)
+I updated the database settings to use PostgreSQL and used dj_database_url to parse the database URL provided by Render:
+
+```
+import os
+import dj_database_url
+
+DEBUG = False
+ALLOWED_HOSTS = ['*']
+
+# PostgreSQL Database Configuration
+DATABASE_URL = os.getenv('DATABASE_URL')
+DATABASES = {
+    'default': dj_database_url.config(default=DATABASE_URL)
 }
 
+```
+Cloudinary Configuration (File Storage)
+I configured Cloudinary for media file storage:
 
+```
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+# Cloudinary settings
+CLOUDINARY_STORAGE = {
+    'CLOUDINARY_URL': os.getenv("CLOUDINARY_URL"),
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+# Media settings
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
+````
 ### 2.4 Adding Static Files Support
-
-python
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+To support static files, I configured the following in settings.py:
+```
 STATIC_URL = '/static/'
-
-
-Then, I ran:
-
-sh
-python manage.py collectstatic
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+```
 
 ### 2.5 Deploying the Backend
-I committed the changes and pushed them to GitHub. Then, in Railway:
+Once the changes were made, I committed and pushed them to GitHub. In Render, I followed these steps:
 
-1. Added a new service → *GitHub Repo* → Selected backend.
-2. Set PYTHON_VERSION=3.9 in *Variables*.
-3. Set RAILWAY_STATIC_URL for static files (if needed).
-4. Clicked *Deploy*.
+Created a new Web Service → GitHub Repo → Selected backend.
+Set PYTHON_VERSION=3.9 in Environment Variables.
+Set DATABASE_URL (provided by Render) in Environment Variables.
+Set CLOUDINARY_URL (obtained from Cloudinary) in Environment Variables.
+Clicked Deploy.
+---
+## 3. Deploying the Frontend (React)
+I deployed the React frontend on Render as well by creating a Static Site.
 
+- Created a new Static Site on Render.
+- Connected the frontend GitHub repository.
+- Set the Build Command (e.g., npm run build) and the Publish Directory (e.g., build/).
+- Clicked Deploy.
+
+- 
 ---
 
 ## 3. Deploying My Frontend (React)
@@ -641,8 +676,8 @@ This project was made possible through the collective efforts of various open-so
 ### 🔹 **Development & Learning Platforms**  
 - [Django Rest Framework Official Docs](https://www.django-rest-framework.org/)  
 - [React Official Documentation](https://react.dev/)  
-- [SQLite Documentation](https://www.sqlite.org/docs.html)  
-- [Railway Deployment Docs](https://docs.railway.app/)  
+- [PostgreSql Documentation](https://www.postgresql.org/docs/)  
+- [Render Deployment Docs](https://render.com/docs/)  
 - [MDN Web Docs](https://developer.mozilla.org/en-US/)  
 - [W3Schools](https://www.w3schools.com/)  
 
