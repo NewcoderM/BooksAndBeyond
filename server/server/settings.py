@@ -68,7 +68,6 @@ CORS_ALLOW_CREDENTIALS = True
 # Application definition
 
 INSTALLED_APPS = [
-    'whitenoise.runserver_nostatic',
     'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -192,8 +191,16 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Serving media files (images, documents, etc.)
-MEDIA_URL = '/static/media/'  # Serve media from static files
-MEDIA_ROOT = os.path.join(STATIC_ROOT, 'media') 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+CLOUDINARY_URL = os.getenv("CLOUDINARY_URL")
+
+CLOUDINARY_STORAGE = {
+    'CLOUDINARY_URL': CLOUDINARY_URL,
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 AUTH_USER_MODEL = 'customer.Customer'
