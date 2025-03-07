@@ -654,7 +654,7 @@ This project was made possible through the collective efforts of various open-so
 10. [Deploying Django + React on Railway](https://www.youtube.com/watch?v=WpFL7kZ-c9g)  
 11. [Best UX/UI Practices](https://www.youtube.com/watch?v=_Q-FQsJpU-I)  
 12. [Kanban Board & Agile Development](https://www.youtube.com/watch?v=R8dYLbJiTUE)  
-13. [Django Deploy with Render, PostgreSQL, Cloudinary, Gmail, Github & Tailwind]([https://www.youtube.com/watch?v=R8dYLbJiTUE](http://youtube.com/watch?v=IkHKg5Unniw))  
+13. [Django Deploy with Render, PostgreSQL, Cloudinary, Gmail, Github & Tailwind](http://youtube.com/watch?v=IkHKg5Unniw)  
 
 ### 🔹 **Development & Learning Platforms**  
 - [Django Rest Framework Official Docs](https://www.django-rest-framework.org/)  
